@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour {
     /// <returns></returns>
     public IEnumerator RespawnPlayerCo()
     {
-        Debug.Log("DEBUG : Player Respawn");
+            Debug.Log("DEBUG : Player Respawn");
 
         // Instantiate death particle where player died
         Instantiate(deathParticle, player.transform.position, player.transform.rotation);

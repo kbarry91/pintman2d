@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed = 2f;
 	public float jumpHeight = 18;
     private readonly float moveVelocity;
-	// grounded variables
+	
+    // grounded variables
 	public Transform groundCheck;
 	public float groundCheckRadius;
 	public LayerMask whatIsGround;
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	// Jump 
+
 	public void Jump () {
 		rigid2D.velocity = new Vector2 (moveSpeed, jumpHeight);
 		//
