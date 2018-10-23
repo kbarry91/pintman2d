@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public float moveSpeed = 5;
 	public float maxSpeed = 2f;
 	public float jumpHeight = 18;
-
+    private readonly float moveVelocity;
 	// grounded variables
 	public Transform groundCheck;
 	public float groundCheckRadius;
