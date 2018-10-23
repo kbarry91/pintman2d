@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour {
     public GameObject respawnParticle;
     public float respawnDelay;
     public int deathPenalty;
+
+    private float gravityStore;
     /// <summary>
 	/// The player.
 	/// </summary>
@@ -54,6 +56,10 @@ public class LevelManager : MonoBehaviour {
         player.enabled = false;
         player.GetComponent<Renderer>().enabled = false;
 
+        // remove gravity when player dies
+       gravityStore= player.GetComponent<Rigidbody2D>().gravityScale;
+        player.GetComponent<Rigidbody2D>().gravityScale=0f;
+
         // stop player when respawn
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
@@ -61,6 +67,9 @@ public class LevelManager : MonoBehaviour {
         ScoreManager.AddPoints(-deathPenalty);
 
         yield return new WaitForSeconds(respawnDelay);
+
+        //reset player gravity
+        player.GetComponent<Rigidbody2D>().gravityScale = gravityStore;
         player.transform.position = currentCheckpoint.transform.position;
 
         // Re enable player
