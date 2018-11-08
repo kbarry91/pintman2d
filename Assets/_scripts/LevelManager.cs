@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour {
 
     private float gravityStore;
 
-    public CameraController camera;
+    private new CameraController camera;
     /// <summary>
 	/// The player.
 	/// </summary>
@@ -75,6 +75,7 @@ public class LevelManager : MonoBehaviour {
         //reset player gravity
        // player.GetComponent<Rigidbody2D>().gravityScale = gravityStore;
         player.transform.position = currentCheckpoint.transform.position;
+       // player.transform.position = new Vector3(currentCheckpoint.transform.position.x, currentCheckpoint.transform.position.y, player.transform.position.z);
 
         // Re enable player
         player.enabled = true;

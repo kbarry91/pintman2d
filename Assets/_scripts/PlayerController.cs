@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 
 	//player variables
 	public float moveSpeed = 5;
-	public float maxSpeed = 2f;
+	//public float maxSpeed = 2f;
 	public float jumpHeight = 18;
     private readonly float moveVelocity;
 	
@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour {
 
 	private bool doubleJumped;
 
+    // variables for firing weapon
+    public Transform firePoint;
+    public GameObject weaponStar;
+
 	// Use this for initialization
 	void Start () {
 		rigid2D = GetComponent<Rigidbody2D> ();
@@ -28,24 +32,45 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-	}
+        Move(Input.GetAxis("Horizontal"));
+        if (grounded)
+            doubleJumped = false;
 
-	void FixedUpdate () {
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        {
+            Jump();
+            //
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && !grounded && !doubleJumped)
+        {
+            doubleJumped = true;
+            Jump();
+            //
+        }
+        /*
+           // flip player
+           if (rigid2D.velocity.x > 0)
+               transform.localScale = new Vector3(1f, 1f, 1f);
+           else if (rigid2D.velocity.x < 0)
+              transform.localScale = new Vector3(-1f, 1f, 1f);
+   */
+        // flip player
+        Debug.Log("rigid2D.velocity.======"+ rigid2D.velocity.x);
+        if (rigid2D.velocity.x > 0)
+            transform.localScale = new Vector2(1f, 1f);
+        else if (rigid2D.velocity.x < 0)
+            transform.localScale = new Vector2(-1f, 1f);
+        
+        // instansiate weapon object when player shoots
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Instantiate(weaponStar, firePoint.position, firePoint.rotation);
+        }
+    }
+
+    void FixedUpdate () {
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, whatIsGround);
 
-		Move (Input.GetAxis ("Horizontal"));
-		if (grounded)
-			doubleJumped = false;
-
-		if (Input.GetKeyDown (KeyCode.Space) && grounded) {
-			Jump ();
-			//
-		}
-		if (Input.GetKeyDown (KeyCode.Space) && !grounded && !doubleJumped) {
-			doubleJumped = true;
-			Jump();
-			//
-		}
 	}
 
 	// Move player

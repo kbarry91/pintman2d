@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour {
 	void Update () {
         if (isFollowing)
         {
-            transform.position = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset,transform.position.z);
+            transform.position = new Vector3(player.transform.position.x + xOffset, player.transform.position.y      + yOffset,transform.position.z);
         }
 	}
 }
