@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask whatIsGround;
 	private bool grounded;
 
+    // Animator
+    private Animator animation;
 	private bool doubleJumped;
 
     // variables for firing weapon
@@ -26,7 +28,9 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		rigid2D = GetComponent<Rigidbody2D> ();
+        // assign component to script
+        animation = GetComponent<Animator>();
+        rigid2D = GetComponent<Rigidbody2D> ();
 	}
 
 	// Update is called once per frame
@@ -35,6 +39,9 @@ public class PlayerController : MonoBehaviour {
         Move(Input.GetAxis("Horizontal"));
         if (grounded)
             doubleJumped = false;
+
+        // set bool for jumping animation
+        animation.SetBool("Grounded", grounded);
 
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
@@ -66,6 +73,9 @@ public class PlayerController : MonoBehaviour {
         {
             Instantiate(weaponStar, firePoint.position, firePoint.rotation);
         }
+
+        // Set animation speed
+        animation.SetFloat("Speed", Mathf.Abs(rigid2D.velocity.x));
     }
 
     void FixedUpdate () {
