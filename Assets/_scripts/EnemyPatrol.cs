@@ -44,7 +44,7 @@ public class EnemyPatrol : MonoBehaviour {
             rigid2D.velocity = new Vector2(-moveSpeed, rigid2D.velocity.y);
 
         }
-        Debug.Log("Rigid vel:" + rigid2D.velocity);
+       // Debug.Log("Rigid vel:" + rigid2D.velocity);
 
        
     }

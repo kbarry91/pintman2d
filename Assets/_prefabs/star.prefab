@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212385525484319384}
   - component: {fileID: 58986350424789576}
   - component: {fileID: 50546214198843454}
+  - component: {fileID: 114820273999774966}
   m_Layer: 0
   m_Name: star
   m_TagString: Untagged
@@ -71,12 +72,24 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1875
+--- !u!114 &114820273999774966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1682176517898402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43bc19ff30b077e43ab6380b61407f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
 --- !u!212 &212385525484319384
 SpriteRenderer:
   m_ObjectHideFlags: 1

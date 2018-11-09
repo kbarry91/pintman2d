@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour {
               transform.localScale = new Vector3(-1f, 1f, 1f);
    */
         // flip player
-        Debug.Log("rigid2D.velocity.======"+ rigid2D.velocity.x);
+      //  Debug.Log("rigid2D.velocity.======"+ rigid2D.velocity.x);
         if (rigid2D.velocity.x > 0)
             transform.localScale = new Vector2(1f, 1f);
         else if (rigid2D.velocity.x < 0)
