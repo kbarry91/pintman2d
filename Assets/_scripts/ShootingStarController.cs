@@ -8,7 +8,10 @@ public class ShootingStarController : MonoBehaviour {
     Rigidbody2D rigid2DStar;
 
     public PlayerController player;
-    
+    public GameObject enemyDeathEffect;
+    public GameObject impactEffect;
+
+    public  int killPoints = 50;
     // Use this for initialization
     void Start () {
 
@@ -31,10 +34,22 @@ public class ShootingStarController : MonoBehaviour {
     }
 
     // Destroy object on collison
-     void OnTriggerEnter2D(Collider2D other)
+     void OnTriggerEnter2D(Collider2D collidingObject)
         
     {
+        // if collider is enemy destroy enemy and apply effect
+        if(collidingObject.tag == "Enemy")
+        {
+            Instantiate(enemyDeathEffect, collidingObject.transform.position, collidingObject.transform.rotation);
+            Destroy(collidingObject.gameObject);
+            // add game points
+            Debug.Log("DEBUG : Destroyed Enemy adding " +killPoints);
+
+            ScoreManager.AddPoints(killPoints);
+        }
+        // Instantiate impactEffect
+        Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy (gameObject);
-        Debug.Log("DEBUG : Destroyed shooting star ,collided with "+other.ToString());
+        Debug.Log("DEBUG : Destroyed shooting star ,collided with "+ collidingObject.ToString());
     }
 }

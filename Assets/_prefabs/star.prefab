@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58986350424789576}
   - component: {fileID: 50546214198843454}
   - component: {fileID: 114820273999774966}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,6 +90,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  player: {fileID: 0}
+  enemyDeathEffect: {fileID: 1693661212541470, guid: d6c40e007ccdb0741827b2edab247fc9,
+    type: 2}
+  impactEffect: {fileID: 1631326634571420, guid: 432e40bac45421c4eaffa41c422fa03a,
+    type: 2}
+  killPoints: 50
 --- !u!212 &212385525484319384
 SpriteRenderer:
   m_ObjectHideFlags: 1
