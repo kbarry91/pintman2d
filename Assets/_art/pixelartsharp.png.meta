@@ -6,6 +6,10 @@ TextureImporter:
     21300002: Player_Walking_1
     21300004: Player_Walking_2
     21300006: Paddy_Jumping
+    21300008: Pint_T
+    21300010: Pint_R
+    21300012: Pint_U
+    21300014: Pint_L
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -178,13 +182,93 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 8aaca673ef1f4fa40ac8f4ab4dc187ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pint_T
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 185
+        width: 25
+        height: 48
+      alignment: 9
+      pivot: {x: 0.51715606, y: 0.49999967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c8fbd4a2c689043a975c88c44552d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pint_R
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 198
+        width: 48
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 109afd25df2ee164c991d401a0b4ccae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pint_U
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 182
+        width: 25
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bfbc73acbf5e46488a533af0f3205ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pint_L
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 126
+        width: 48
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d284b351d9ec81489f3ef930426943b
       vertices: []
       indices: 
       edges: []
