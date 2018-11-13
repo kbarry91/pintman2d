@@ -340,6 +340,7 @@ MonoBehaviour:
     type: 2}
   respawnDelay: 1
   deathPenalty: 5
+  healthController: {fileID: 0}
 --- !u!1 &279044280
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +475,10 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  kickBack: 0
+  kickBackLength: 0
+  KickBackCounter: 0
+  kickFromRight: 0
   firePoint: {fileID: 615055168}
   weaponStar: {fileID: 1682176517898402, guid: 4128413522532394f81ab6513fa90e81, type: 2}
 --- !u!95 &279044286
@@ -3338,6 +3343,48 @@ Transform:
   m_Father: {fileID: 1563364731}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1990312791
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4775841318301474, guid: f790f9a25814e1747955be75bb50af3a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775841318301474, guid: f790f9a25814e1747955be75bb50af3a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775841318301474, guid: f790f9a25814e1747955be75bb50af3a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775841318301474, guid: f790f9a25814e1747955be75bb50af3a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775841318301474, guid: f790f9a25814e1747955be75bb50af3a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775841318301474, guid: f790f9a25814e1747955be75bb50af3a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775841318301474, guid: f790f9a25814e1747955be75bb50af3a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775841318301474, guid: f790f9a25814e1747955be75bb50af3a, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f790f9a25814e1747955be75bb50af3a, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &2020968788
 GameObject:
   m_ObjectHideFlags: 0

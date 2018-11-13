@@ -77,8 +77,8 @@ public class LevelManager : MonoBehaviour {
         //reset player gravity
        // player.GetComponent<Rigidbody2D>().gravityScale = gravityStore;
         player.transform.position = currentCheckpoint.transform.position;
-       // player.transform.position = new Vector3(currentCheckpoint.transform.position.x, currentCheckpoint.transform.position.y, player.transform.position.z);
-
+        // player.transform.position = new Vector3(currentCheckpoint.transform.position.x, currentCheckpoint.transform.position.y, player.transform.position.z);
+        player.KickBackCounter = 0;
         // Re enable player
         player.enabled = true;
         player.GetComponent<Renderer>().enabled = true;
