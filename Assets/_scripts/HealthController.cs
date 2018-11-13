@@ -12,6 +12,7 @@ public class HealthController : MonoBehaviour
     public bool isAlive;
     private LevelManager levelManager;
 
+    private LifeController lifeController;
     // Use this for initialization
     void Start()
     {
@@ -22,7 +23,7 @@ public class HealthController : MonoBehaviour
         isAlive = true;
         // Get LevelManger
         levelManager = FindObjectOfType<LevelManager>();
-
+        lifeController = FindObjectOfType<LifeController>();
 
     }
 
@@ -34,6 +35,7 @@ public class HealthController : MonoBehaviour
         {
             playerHealth = 0;
             levelManager.RespawnPlayer();
+            lifeController.LoseLife();
             isAlive = false;
         }
 
