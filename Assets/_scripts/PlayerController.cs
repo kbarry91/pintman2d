@@ -54,12 +54,12 @@ public class PlayerController : MonoBehaviour
         // set bool for jumping animation
         animation.SetBool("Grounded", grounded);
 
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetButtonDown("Jump") && grounded)
         {
             Jump();
             //
         }
-        if (Input.GetKeyDown(KeyCode.Space) && !grounded && !doubleJumped)
+        if (Input.GetButtonDown("Jump") && !grounded && !doubleJumped)
         {
             doubleJumped = true;
             Jump();
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector2(-1f, 1f);
 
         // instansiate weapon object when player shoots
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(weaponStar, firePoint.position, firePoint.rotation);
         }
