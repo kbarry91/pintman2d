@@ -109,6 +109,7 @@ MonoBehaviour:
   impactEffect: {fileID: 1631326634571420, guid: 432e40bac45421c4eaffa41c422fa03a,
     type: 2}
   killPoints: 50
+  damage: 1
 --- !u!212 &212385525484319384
 SpriteRenderer:
   m_ObjectHideFlags: 1

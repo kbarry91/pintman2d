@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour {
 
     private float gravityStore;
 
+    public HealthController healthController;
     private new CameraController camera;
     /// <summary>
 	/// The player.
@@ -31,6 +32,7 @@ public class LevelManager : MonoBehaviour {
 	void Start () {
 		player = FindObjectOfType<PlayerController> ();
         camera = FindObjectOfType<CameraController>();
+        healthController = FindObjectOfType<HealthController>();
 	}
 	
 	// Update is called once per frame
@@ -80,6 +82,10 @@ public class LevelManager : MonoBehaviour {
         // Re enable player
         player.enabled = true;
         player.GetComponent<Renderer>().enabled = true;
+
+        // Restore players health
+        healthController.RestoreHealth();
+        healthController.isAlive = true;
 
         camera.isFollowing = true;
         // Instantiate respawn particle where player respawns

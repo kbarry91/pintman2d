@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4990678095175784}
   - component: {fileID: 212083096203906280}
   - component: {fileID: 61189621984920754}
-  - component: {fileID: 114289705297612548}
+  - component: {fileID: 114305883812230766}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -35,8 +35,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192896103806632}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.871, y: -0.12506, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.7704, y: -0.69993, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.70625955}
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,9 +65,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.75, y: 2.27}
+  m_Size: {x: 2.75, y: 2.4}
   m_EdgeRadius: 0
---- !u!114 &114289705297612548
+--- !u!114 &114305883812230766
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,10 +75,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1192896103806632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdb96228d718d4f46a85d5b365b6ea0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f29ec597add8df439f617531ce72784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
+  damage: 50
 --- !u!212 &212083096203906280
 SpriteRenderer:
   m_ObjectHideFlags: 1
