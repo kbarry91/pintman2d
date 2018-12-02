@@ -11,7 +11,7 @@ public class HealthController : MonoBehaviour
     Text text;
     public bool isAlive;
     private LevelManager levelManager;
-
+    private TimeController timeController;
     private LifeController lifeController;
     // Use this for initialization
     void Start()
@@ -22,6 +22,7 @@ public class HealthController : MonoBehaviour
         //playerHealth = maxPlayerHealth;
         playerHealth = PlayerPrefs.GetInt("CurrentPlayerHealth");
         // Get LevelManger
+        timeController = FindObjectOfType<TimeController>();
         levelManager = FindObjectOfType<LevelManager>();
         lifeController = FindObjectOfType<LifeController>();
         isAlive = true;
@@ -38,6 +39,7 @@ public class HealthController : MonoBehaviour
             levelManager.RespawnPlayer();
             lifeController.LoseLife();
             isAlive = false;
+            timeController.ResetTime();
         }
 
         // update ui
@@ -56,5 +58,10 @@ public class HealthController : MonoBehaviour
         playerHealth = PlayerPrefs.GetInt("MaxPlayerHealth");
         PlayerPrefs.SetInt("CurrentPlayerHealth", playerHealth);
 
+    }
+    public  void KillPlayer()
+    {
+        playerHealth = 0;
+        
     }
 }
