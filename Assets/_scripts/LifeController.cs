@@ -23,7 +23,7 @@ public class LifeController : MonoBehaviour {
 	void Start () {
         lifeText = GetComponent<Text>();
         // Get PlayerLives
-        lifeCounter = PlayerPrefs.GetInt("PlayerLives");
+        lifeCounter = PlayerPrefs.GetInt("CurrentPlayerLives");
         player = FindObjectOfType<PlayerController>();
 
 	}
@@ -52,14 +52,14 @@ public class LifeController : MonoBehaviour {
     public void AddLife()
     {
         lifeCounter++;
-        PlayerPrefs.SetInt("PlayerLives", lifeCounter);
+        PlayerPrefs.SetInt("CurrentPlayerLives", lifeCounter);
     }
 
     // Remove a life
     public void LoseLife()
     {
         lifeCounter--;
-        PlayerPrefs.SetInt("PlayerLives", lifeCounter);
+        PlayerPrefs.SetInt("CurrentPlayerLives", lifeCounter);
 
     }
 }

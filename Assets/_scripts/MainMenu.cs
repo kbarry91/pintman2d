@@ -15,13 +15,13 @@ public class MainMenu : MonoBehaviour {
         SceneManager.LoadScene(beginLevel);
 
         // Set Initial lives for player
-        PlayerPrefs.SetInt("PlayerLives", currentLives);
+        PlayerPrefs.SetInt("CurrentPlayerLives", currentLives);
     }
     // Select Level
     public void SelectLevel()
     {
         // Reset lives for player
-        PlayerPrefs.SetInt("PlayerLives", currentLives);
+        PlayerPrefs.SetInt("CurrentPlayerLives", currentLives);
         // Load first level
         SceneManager.LoadScene(selectLevel);
     }
