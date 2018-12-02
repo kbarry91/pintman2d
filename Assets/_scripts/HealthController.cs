@@ -19,11 +19,12 @@ public class HealthController : MonoBehaviour
         text = GetComponent<Text>();
 
         // Set Health to max
-        playerHealth = maxPlayerHealth;
-        isAlive = true;
+        //playerHealth = maxPlayerHealth;
+        playerHealth = PlayerPrefs.GetInt("CurrentPlayerHealth");
         // Get LevelManger
         levelManager = FindObjectOfType<LevelManager>();
         lifeController = FindObjectOfType<LifeController>();
+        isAlive = true;
 
     }
 
@@ -47,10 +48,13 @@ public class HealthController : MonoBehaviour
     public static void DamagePlayer(int damage)
     {
         playerHealth -= damage;
+        PlayerPrefs.SetInt("CurrentPlayerHealth", playerHealth);
     }
 
     public void RestoreHealth()
     {
-        playerHealth = maxPlayerHealth;
+        playerHealth = PlayerPrefs.GetInt("MaxPlayerHealth");
+        PlayerPrefs.SetInt("CurrentPlayerHealth", playerHealth);
+
     }
 }

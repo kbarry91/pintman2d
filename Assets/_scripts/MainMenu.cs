@@ -2,26 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class MainMenu : MonoBehaviour {
+public class MainMenu : MonoBehaviour
+{
 
     public string beginLevel;
     public string selectLevel;
     public int currentLives;
+    public int currentHealth;
 
     // New Game
     public void NewGame()
     {
+
+        // Set Initial preferences for player
+        PlayerPrefs.SetInt("CurrentPlayerLives", currentLives);
+        PlayerPrefs.SetInt("CurrentPlayerScore", 0);
+        PlayerPrefs.SetInt("CurrentPlayerHealth", currentHealth);
+        PlayerPrefs.SetInt("MaxPlayerHealth", currentHealth);
+
         // Load first level
         SceneManager.LoadScene(beginLevel);
 
-        // Set Initial lives for player
-        PlayerPrefs.SetInt("CurrentPlayerLives", currentLives);
+
     }
     // Select Level
     public void SelectLevel()
     {
-        // Reset lives for player
+        // Set Initial preferences for player
         PlayerPrefs.SetInt("CurrentPlayerLives", currentLives);
+        PlayerPrefs.SetInt("CurrentPlayerScore", 0);
+        PlayerPrefs.SetInt("CurrentPlayerHealth", currentHealth);
+        PlayerPrefs.SetInt("MaxPlayerHealth", currentHealth);
+
         // Load first level
         SceneManager.LoadScene(selectLevel);
     }
