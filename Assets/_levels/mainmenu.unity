@@ -545,6 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beginLevel: level1
   selectLevel: LevelSelector
+  currentLives: 3
 --- !u!1 &1075166942
 GameObject:
   m_ObjectHideFlags: 0
