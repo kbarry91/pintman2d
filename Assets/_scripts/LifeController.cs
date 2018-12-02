@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LifeController : MonoBehaviour {
 
-    public int initialLives;
+    //public int initialLives;
     private int lifeCounter;
     private Text lifeText;
 
@@ -22,7 +22,8 @@ public class LifeController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         lifeText = GetComponent<Text>();
-        lifeCounter = initialLives;
+        // Get PlayerLives
+        lifeCounter = PlayerPrefs.GetInt("CurrentPlayerLives");
         player = FindObjectOfType<PlayerController>();
 
 	}
@@ -51,11 +52,14 @@ public class LifeController : MonoBehaviour {
     public void AddLife()
     {
         lifeCounter++;
+        PlayerPrefs.SetInt("CurrentPlayerLives", lifeCounter);
     }
 
     // Remove a life
     public void LoseLife()
     {
         lifeCounter--;
+        PlayerPrefs.SetInt("CurrentPlayerLives", lifeCounter);
+
     }
 }

@@ -11,7 +11,9 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-        score = 0;
+        //score = 0;
+        // Set score to current score
+        score = PlayerPrefs.GetInt("CurrentPlayerScore");
     }
 
     // Update is called once per frame
@@ -29,10 +31,13 @@ public class ScoreManager : MonoBehaviour
     public static void AddPoints(int pointsToAdd)
     {
         score += pointsToAdd;
+        PlayerPrefs.SetInt("CurrentPlayerScore",score);
     }
 
     public static void ResetPoints()
     {
         score = 0;
+        PlayerPrefs.SetInt("CurrentPlayerScore", score);
+
     }
 }

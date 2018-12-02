@@ -6,16 +6,22 @@ public class MainMenu : MonoBehaviour {
 
     public string beginLevel;
     public string selectLevel;
+    public int currentLives;
 
     // New Game
     public void NewGame()
     {
         // Load first level
         SceneManager.LoadScene(beginLevel);
+
+        // Set Initial lives for player
+        PlayerPrefs.SetInt("CurrentPlayerLives", currentLives);
     }
     // Select Level
     public void SelectLevel()
     {
+        // Reset lives for player
+        PlayerPrefs.SetInt("CurrentPlayerLives", currentLives);
         // Load first level
         SceneManager.LoadScene(selectLevel);
     }
