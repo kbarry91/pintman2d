@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PintPickup : MonoBehaviour {
+public class PintPickup : MonoBehaviour
+{
 
     public int pointsToAdd;
+    public AudioSource pintSoundEffect;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,8 +16,9 @@ public class PintPickup : MonoBehaviour {
 
         ScoreManager.AddPoints(pointsToAdd);
 
+        pintSoundEffect.Play();
         // remove point object
         Destroy(gameObject);
     }
-    
+
 }

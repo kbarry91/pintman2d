@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
@@ -38,5 +38,7 @@ public class EnemyHealthController : MonoBehaviour
     public void DecreaseHealth(int damage)
     {
         enemyHealth -= damage;
+        GetComponent<AudioSource>().Play();
+
     }
 }

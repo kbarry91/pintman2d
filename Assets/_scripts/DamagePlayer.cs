@@ -23,6 +23,7 @@ public class DamagePlayer : MonoBehaviour
         if (collide.name == "Player")
         {
             HealthController.DamagePlayer(damage);
+            collide.GetComponent<AudioSource>().Play();
 
             // knockback player 
             var player = collide.GetComponent<PlayerController>();
