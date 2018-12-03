@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint;
     public GameObject weaponStar;
 
+    public float shootDelay;
+    public float shootDelayCounter;
+
     // Use this for initialization
     void Start()
     {
@@ -154,6 +157,7 @@ public class PlayerController : MonoBehaviour
     public void Shoot()
     {
         Instantiate(weaponStar, firePoint.position, firePoint.rotation);
+
 
     }
 

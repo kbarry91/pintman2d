@@ -14,6 +14,8 @@ public class ShootingStarController : MonoBehaviour {
     public  int killPoints = 50;
     // damage for hit
     public int damage;
+    public float shootRotationSpeed;
+
     // Use this for initialization
 
     void Start () {
@@ -25,6 +27,8 @@ public class ShootingStarController : MonoBehaviour {
         if(player.transform.localScale.x < 0)
         {
             speed = -speed;
+            // flip rotation if player is facing left or right
+            shootRotationSpeed = -shootRotationSpeed;
         }
     }
 	
@@ -33,11 +37,13 @@ public class ShootingStarController : MonoBehaviour {
         
         // add linear velocity to rigid2DStar
         rigid2DStar.velocity = new Vector2(speed, rigid2DStar.velocity.y);
+        // Set speed of rotation
+        rigid2DStar.angularVelocity = shootRotationSpeed;
 
     }
 
     // Destroy object on collison
-     void OnTriggerEnter2D(Collider2D collidingObject)
+    void OnTriggerEnter2D(Collider2D collidingObject)
         
     {
         // if collider is enemy destroy enemy and apply effect
