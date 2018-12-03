@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        Move(Input.GetAxis("Horizontal"));
+       
 
 
         if (grounded)
@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour
 
         // set bool for jumping animation
         animation.SetBool("Grounded", grounded);
-
+          // determine if device is computer or mobile
+#if UNITY_STANDALONE || UNITY_WEBPLAYER
         if (Input.GetButtonDown("Jump") && grounded)
         {
             Jump();
@@ -65,6 +66,8 @@ public class PlayerController : MonoBehaviour
             Jump();
             //
         }
+        Move(Input.GetAxis("Horizontal"));
+#endif
         /*
            // flip player
            if (rigid2D.velocity.x > 0)
@@ -79,12 +82,15 @@ public class PlayerController : MonoBehaviour
         else if (rigid2D.velocity.x < 0)
             transform.localScale = new Vector2(-1f, 1f);
 
+        // determine if device is computer or mobile
+#if UNITY_STANDALONE || UNITY_WEBPLAYER
         // instansiate weapon object when player shoots
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(weaponStar, firePoint.position, firePoint.rotation);
+            Shoot();
+          //  Instantiate(weaponStar, firePoint.position, firePoint.rotation);
         }
-
+#endif
         // Set animation speed
         animation.SetFloat("Speed", Mathf.Abs(rigid2D.velocity.x));
     }
@@ -129,8 +135,25 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        rigid2D.velocity = new Vector2(moveSpeed, jumpHeight);
+        //rigid2D.velocity = new Vector2(moveSpeed, jumpHeight);
         //
+        if (grounded)
+        {
+            rigid2D.velocity = new Vector2(moveSpeed, jumpHeight);
+            //
+        }
+        if ( !grounded && !doubleJumped)
+        {
+            rigid2D.velocity = new Vector2(moveSpeed, jumpHeight);
+            doubleJumped = true;
+
+            //
+        }
+
+    }
+    public void Shoot()
+    {
+        Instantiate(weaponStar, firePoint.position, firePoint.rotation);
 
     }
 
