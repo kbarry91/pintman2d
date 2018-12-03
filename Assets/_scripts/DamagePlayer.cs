@@ -27,10 +27,20 @@ public class DamagePlayer : MonoBehaviour
 
             // knockback player 
             var player = collide.GetComponent<PlayerController>();
-            player.KickBackCounter = player.kickBackLength;
+            if (gameObject.GetComponent<PickUpHealth>())
+            {
+                print(collide.name + " Collided with " + gameObject);
+
+                return;
+            }
+            else
+            {
+                player.KickBackCounter = player.kickBackLength;
+
+            }
 
             // determine direction to kick player
-            if(collide.transform.position.x < transform.position.x)
+            if (collide.transform.position.x < transform.position.x)
             {
                 player.kickFromRight = true;
             }

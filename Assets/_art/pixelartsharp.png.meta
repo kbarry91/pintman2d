@@ -10,6 +10,7 @@ TextureImporter:
     21300010: Pint_R
     21300012: Pint_U
     21300014: Pint_L
+    21300016: Extra_Life
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -269,6 +270,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3d284b351d9ec81489f3ef930426943b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Extra_Life
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 114
+        width: 43
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8e0143cab49714da9e5a21b289d674
       vertices: []
       indices: 
       edges: []

@@ -8,7 +8,8 @@ public class HealthController : MonoBehaviour
 
     public static int playerHealth;
     public int maxPlayerHealth;
-    Text text;
+    //Text text;
+    public Slider healthBar;
     public bool isAlive;
     private LevelManager levelManager;
     private TimeController timeController;
@@ -16,8 +17,8 @@ public class HealthController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        text = GetComponent<Text>();
-
+        //text = GetComponent<Text>();
+        healthBar = GetComponent<Slider>();
         // Set Health to max
         //playerHealth = maxPlayerHealth;
         playerHealth = PlayerPrefs.GetInt("CurrentPlayerHealth");
@@ -42,8 +43,13 @@ public class HealthController : MonoBehaviour
             timeController.ResetTime();
         }
 
+        if (playerHealth > maxPlayerHealth)
+        {
+            playerHealth = maxPlayerHealth;
+        }
         // update ui
-        text.text = "" + playerHealth;
+        //  text.text = "" + playerHealth;
+        healthBar.value = playerHealth;
     }
 
     // Decrease enemies health
