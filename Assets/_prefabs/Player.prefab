@@ -129,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 1411738787259306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.006, y: -0.46, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7875, y: 0.975, z: 1}
   m_Children: []
   m_Father: {fileID: 4692367766826404}
   m_RootOrder: 2
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9160c69f74c564ab460cbcb748ed98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 5
   jumpHeight: 18
   groundCheck: {fileID: 4476414876057078}
   groundCheckRadius: 0.1
@@ -331,6 +331,7 @@ MonoBehaviour:
   kickFromRight: 0
   firePoint: {fileID: 4469772298204752}
   weaponStar: {fileID: 1682176517898402, guid: 4128413522532394f81ab6513fa90e81, type: 2}
+  shootDelay: 0.2
 --- !u!114 &114747374457750502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -342,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e4161f2e377c9478130e3c7738c134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 1
   bounce: 13
 --- !u!212 &212133738132611660
 SpriteRenderer:

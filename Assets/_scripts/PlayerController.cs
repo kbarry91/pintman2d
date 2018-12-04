@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private bool grounded;
 
     // Animator
-    private Animator animation;
+    private Animator anim;
     private bool doubleJumped;
 
     // Player kickBack
@@ -34,13 +34,13 @@ public class PlayerController : MonoBehaviour
     public GameObject weaponStar;
 
     public float shootDelay;
-    public float shootDelayCounter;
+    private float shootDelayCounter;
 
     // Use this for initialization
     void Start()
     {
         // assign component to script
-        animation = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         rigid2D = GetComponent<Rigidbody2D>();
     }
 
@@ -48,15 +48,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-       
-
-
         if (grounded)
             doubleJumped = false;
 
         // set bool for jumping animation
-        animation.SetBool("Grounded", grounded);
-          // determine if device is computer or mobile
+        anim.SetBool("Grounded", grounded);
+
+        // determine if device is computer or mobile
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
         if (Input.GetButtonDown("Jump") && grounded)
         {
@@ -65,11 +63,12 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && !grounded && !doubleJumped)
         {
-            doubleJumped = true;
+           
             Jump();
+            doubleJumped = true;
             //
         }
-        Move(Input.GetAxis("Horizontal"));
+        Move(Input.GetAxisRaw("Horizontal"));
 #endif
         /*
            // flip player
@@ -80,42 +79,13 @@ public class PlayerController : MonoBehaviour
    */
         // flip player
         //  Debug.Log("rigid2D.velocity.======"+ rigid2D.velocity.x);
-        if (rigid2D.velocity.x > 0)
-            transform.localScale = new Vector2(1f, 1f);
-        else if (rigid2D.velocity.x < 0)
-            transform.localScale = new Vector2(-1f, 1f);
-
-        // determine if device is computer or mobile
-#if UNITY_STANDALONE || UNITY_WEBPLAYER
-        // instansiate weapon object when player shoots
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-          //  Instantiate(weaponStar, firePoint.position, firePoint.rotation);
-        }
-#endif
-        // Set animation speed
-        animation.SetFloat("Speed", Mathf.Abs(rigid2D.velocity.x));
-    }
-
-    void FixedUpdate()
-    {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-
-    }
-
-    // Move player
-    public void Move(float horizontalInput)
-
-    {
-        this.moveVelocity = horizontalInput * moveSpeed;
-
         // Restrict movement after kickBack
         if (KickBackCounter <= 0)
         {
-            Vector2 moveVel = rigid2D.velocity;
-            moveVel.x = this.moveVelocity;
-            rigid2D.velocity = moveVel;
+            //Vector2 moveVel = rigid2D.velocity;
+            //moveVel.x = this.moveVelocity;
+            // rigid2D.velocity = moveVel;
+            rigid2D.velocity = new Vector2(moveVelocity, rigid2D.velocity.y);
         }
         else
         {
@@ -129,6 +99,49 @@ public class PlayerController : MonoBehaviour
             }
             KickBackCounter -= Time.deltaTime;
         }
+        // Set animation speed
+        anim.SetFloat("Speed", Mathf.Abs(rigid2D.velocity.x));
+
+        if (rigid2D.velocity.x > 0)
+            transform.localScale = new Vector2(1f, 1f);
+        else if (rigid2D.velocity.x < 0)
+            transform.localScale = new Vector2(-1f, 1f);
+
+        // determine if device is computer or mobile
+#if UNITY_STANDALONE || UNITY_WEBPLAYER
+        // instansiate weapon object when player shoots, Sets a delay to next shot
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+            shootDelayCounter = shootDelay;
+          //  Instantiate(weaponStar, firePoint.position, firePoint.rotation);
+        }
+        if (Input.GetButton("Fire1"))
+        {
+            shootDelayCounter -= Time.deltaTime;
+            if (shootDelayCounter <= 0)
+            {
+                shootDelayCounter = shootDelay;
+                Shoot();
+            }
+        }
+        
+#endif
+
+    }
+
+    void FixedUpdate()
+    {
+        this.grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+    }
+
+    // Move player
+    public void Move(float moveInput)
+
+    {
+        moveVelocity = moveInput * moveSpeed;
+
+
         // Vector2 moveVel = rigid2D.velocity;
         // moveVel.x = horizontalInput * moveSpeed;
         //  rigid2D.velocity = moveVel;
@@ -138,16 +151,18 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        //rigid2D.velocity = new Vector2(moveSpeed, jumpHeight);
+        // rigid2D.velocity = new Vector2(rigid2D.velocity.x, jumpHeight);
         //
+
         if (grounded)
         {
-            rigid2D.velocity = new Vector2(moveSpeed, jumpHeight);
+            // doubleJumped = false;
+            rigid2D.velocity = new Vector2(rigid2D.velocity.x, jumpHeight);
             //
         }
-        if ( !grounded && !doubleJumped)
+        if (!grounded && !doubleJumped)
         {
-            rigid2D.velocity = new Vector2(moveSpeed, jumpHeight);
+            rigid2D.velocity = new Vector2(rigid2D.velocity.x, jumpHeight);
             doubleJumped = true;
 
             //
@@ -157,7 +172,6 @@ public class PlayerController : MonoBehaviour
     public void Shoot()
     {
         Instantiate(weaponStar, firePoint.position, firePoint.rotation);
-
 
     }
 
