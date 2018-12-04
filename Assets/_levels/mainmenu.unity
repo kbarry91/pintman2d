@@ -547,6 +547,7 @@ MonoBehaviour:
   selectLevel: LevelSelector
   currentLives: 3
   currentHealth: 7
+  level1Tag: level1locked
 --- !u!1 &1075166942
 GameObject:
   m_ObjectHideFlags: 0

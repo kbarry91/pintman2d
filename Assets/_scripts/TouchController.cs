@@ -5,11 +5,13 @@ using UnityEngine;
 public class TouchController : MonoBehaviour {
 
     private PlayerController player;
-
+    private LevelLoader launchLevel;
+    private PauseMenu pauser;
 	// Use this for initialization
 	void Start () {
         player = FindObjectOfType<PlayerController>();
-
+        launchLevel = FindObjectOfType<LevelLoader>();
+        pauser = FindObjectOfType<PauseMenu>();
 	}
 
     public void LeftArrowButton()
@@ -33,5 +35,16 @@ public class TouchController : MonoBehaviour {
     public void Jump()
     {
         player.Jump();
+        // If player is in next level door and initiates a jump load next level.
+        if (launchLevel.playerInDoor)
+        {
+            launchLevel.LaunchLevel();
+        }
     }
+    // Pause game using touch
+    public void PauseGame()
+    {
+        pauser.PauseUpdate();
+    }
+
 }

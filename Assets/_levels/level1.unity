@@ -3508,7 +3508,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa254aabb1eac6e4597ad59dfcdbee50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInDoor: 0
   nextLevel: LevelSelector
+  unlockedLevel: level2locked
 --- !u!1 &365942303
 GameObject:
   m_ObjectHideFlags: 0
@@ -4510,10 +4512,6 @@ Prefab:
     - target: {fileID: 224844410286655806, guid: 9add825bcc8e2b3438739386b06a501a,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025893789478210, guid: 9add825bcc8e2b3438739386b06a501a, type: 2}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -35,8 +35,14 @@ public class PauseMenu : MonoBehaviour
         // Reverse isPaused with escape button
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isPaused = !isPaused;
+            PauseUpdate();
         }
+    }
+    // Reverse isPaused for use with touch
+
+    public void PauseUpdate()
+    {
+        isPaused = !isPaused;
     }
     public void Continue()
     {
