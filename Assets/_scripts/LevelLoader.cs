@@ -7,8 +7,9 @@ public class LevelLoader : MonoBehaviour
 {
     //  Variable for if player is at end of level door
     public bool playerInDoor;
-    //next level
+    //next level to load
     public string nextLevel;
+    // name of player prefs to store vale
     public string unlockedLevel;
     // Use this for initialization
     void Start()

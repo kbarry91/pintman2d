@@ -22,7 +22,10 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("CurrentPlayerHealth", currentHealth);
         PlayerPrefs.SetInt("MaxPlayerHealth", currentHealth);
 
+        // Start new game at level 1 and menu position 0
+
         PlayerPrefs.SetInt(level1Tag, 1);
+        PlayerPrefs.SetInt("PlayerLevelSelectPosition", 0);
         // Load first level
         SceneManager.LoadScene(beginLevel);
 
@@ -38,6 +41,11 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("MaxPlayerHealth", currentHealth);
 
         PlayerPrefs.SetInt(level1Tag, 1);
+
+        // Check if PlayerLevelSelectPosition does not have value set to 0
+        if (!PlayerPrefs.HasKey("PlayerLevelSelectPosition")){
+            PlayerPrefs.SetInt("PlayerLevelSelectPosition", 0);
+        }
 
         // Load first level
         SceneManager.LoadScene(selectLevel);
