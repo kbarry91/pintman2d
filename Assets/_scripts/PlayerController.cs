@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Grounded", grounded);
 
         // determine if device is computer or mobile
-#if UNITY_STANDALONE || UNITY_WEBPLAYER
+//#if UNITY_STANDALONE || UNITY_WEBPLAYER
         if (Input.GetButtonDown("Jump") && grounded)
         {
             Jump();
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             //
         }
         Move(Input.GetAxisRaw("Horizontal"));
-#endif
+//#endif
         /*
            // flip player
            if (rigid2D.velocity.x > 0)
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector2(-1f, 1f);
 
         // determine if device is computer or mobile
-#if UNITY_STANDALONE || UNITY_WEBPLAYER
+//#if UNITY_STANDALONE || UNITY_WEBPLAYER
         // instansiate weapon object when player shoots, Sets a delay to next shot
         if (Input.GetButtonDown("Fire1"))
         {
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-#endif
+//#endif
 
     }
 

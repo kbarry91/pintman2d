@@ -6,6 +6,7 @@ TextureImporter:
     21300002: groundLeft
     21300004: groundRight
     21300006: ground4
+    21300008: groundPlain
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -185,6 +186,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e5e850a2bd094454e972075b7e9be9ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: groundPlain
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1af2ce53ca6d8fe4db63afd78d6635fc
       vertices: []
       indices: 
       edges: []
