@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
     public string selectLevel;
     public string selectMainMenu;
 
@@ -13,8 +12,6 @@ public class PauseMenu : MonoBehaviour
 
     // Canvas containing Pause menu UI
     public GameObject pauseMenuCanvas;
-
-
 
     // Update is called once per frame
     void Update()
@@ -29,7 +26,6 @@ public class PauseMenu : MonoBehaviour
         {
             pauseMenuCanvas.SetActive(false);
             Time.timeScale = 1f;
-
         }
 
         // Reverse isPaused with escape button
@@ -38,25 +34,27 @@ public class PauseMenu : MonoBehaviour
             PauseUpdate();
         }
     }
-    // Reverse isPaused for use with touch
 
+    // Reverse isPaused for use with touch
     public void PauseUpdate()
     {
         isPaused = !isPaused;
     }
+
     public void Continue()
     {
         isPaused = false;
     }
+
     public void SelectLevel()
     {
 
         SceneManager.LoadScene(selectLevel);
     }
+
     public void ReturnToMain()
     {
         SceneManager.LoadScene(selectMainMenu);
-
     }
 
 }

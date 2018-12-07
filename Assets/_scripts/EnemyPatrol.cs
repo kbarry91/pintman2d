@@ -1,38 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class EnemyPatrol : MonoBehaviour {
+// EnemyPatrol  controls enemy movement.
+public class EnemyPatrol : MonoBehaviour
+{
     public float moveSpeed;
     public bool moveRight;
     Rigidbody2D rigid2D;
 
-    // wall variables
+    // Wall variables
     public Transform wallCheck;
     public float wallCheckRadius;
     public LayerMask whatIsWall;
     private bool contactWall;
 
-    // edge variables
+    // Edge variables
     private bool notAtEdge;
     public Transform edgeCheck;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         rigid2D = GetComponent<Rigidbody2D>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
         contactWall = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, whatIsWall);
 
         notAtEdge = Physics2D.OverlapCircle(edgeCheck.position, wallCheckRadius, whatIsWall);
 
+        // Determine if enemy is at a wall or edge.
         if (contactWall || !notAtEdge)
         {
             moveRight = !moveRight;
         }
+        // Flip movent along x-axis.
         if (moveRight)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
@@ -44,8 +49,6 @@ public class EnemyPatrol : MonoBehaviour {
             rigid2D.velocity = new Vector2(-moveSpeed, rigid2D.velocity.y);
 
         }
-       // Debug.Log("Rigid vel:" + rigid2D.velocity);
-
-       
+        // Debug.Log("Rigid vel:" + rigid2D.velocity);
     }
 }

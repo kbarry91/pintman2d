@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-/// <summary>
-/// DestroyFinishedParticle destroys objects to conserve memory
-/// </summary>
+
+// DestroyFinishedParticle destroys unused objects to conserve memory.
 public class DestroyFinishedParticle : MonoBehaviour
 {
     private ParticleSystem thisParticleSystem;
+
     // Use this for initialization
     void Start()
     {
@@ -18,6 +18,7 @@ public class DestroyFinishedParticle : MonoBehaviour
         {
             return;
         }
+        // Destroy the game object.
         Destroy(gameObject);
     }
     private void OnBecameInvisible()

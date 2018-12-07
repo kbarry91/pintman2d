@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class MainMenu : MonoBehaviour
 {
-
     public string beginLevel;
     public string selectLevel;
     public int currentLives;
     public int currentHealth;
 
-    
     public string level1Tag;
+
     // New Game
     public void NewGame()
     {
@@ -26,11 +26,11 @@ public class MainMenu : MonoBehaviour
 
         PlayerPrefs.SetInt(level1Tag, 1);
         PlayerPrefs.SetInt("PlayerLevelSelectPosition", 0);
+
         // Load first level
         SceneManager.LoadScene(beginLevel);
-
-
     }
+
     // Select Level
     public void SelectLevel()
     {
@@ -43,7 +43,8 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt(level1Tag, 1);
 
         // Check if PlayerLevelSelectPosition does not have value set to 0
-        if (!PlayerPrefs.HasKey("PlayerLevelSelectPosition")){
+        if (!PlayerPrefs.HasKey("PlayerLevelSelectPosition"))
+        {
             PlayerPrefs.SetInt("PlayerLevelSelectPosition", 0);
         }
 
@@ -54,7 +55,6 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     {
         // Quit Game
-        //SceneManager.LoadScene(beginLevel);
         Application.Quit();
         Debug.Log("User has exited game");
     }

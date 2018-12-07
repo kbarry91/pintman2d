@@ -7,9 +7,11 @@ public class LevelSelectController : MonoBehaviour
 {
 
     public string[] unlockedLevels;
+
     // Levels that are locked
     public GameObject[] levelsLocked;
     public bool[] levelReached;
+
     // Value of position of lock
     public int positionSelector;
     public float distanceUnderBlock;
@@ -42,7 +44,8 @@ public class LevelSelectController : MonoBehaviour
                 levelsLocked[i].SetActive(false);
             }
         }
-        // Set player position to current level
+
+        // Set player position to current level.
         positionSelector = PlayerPrefs.GetInt("PlayerLevelSelectPosition");
         transform.position = levelsLocked[positionSelector].transform.position + new Vector3(0, distanceUnderBlock, 0);
     }
@@ -50,19 +53,19 @@ public class LevelSelectController : MonoBehaviour
     {
         if (!isPressed)
         {
-            // If moving right
+            // If moving right.
             if (Input.GetAxis("Horizontal") > 0.25f)
             {
                 positionSelector += 1;
                 isPressed = true;
             }
-            // If moving left
+            // If moving left.
             if (Input.GetAxis("Horizontal") < -0.25f)
             {
                 positionSelector -= 1;
                 isPressed = true;
             }
-            // if trying to move futher than possible
+            // If trying to move futher than possible.
             if (positionSelector >= unlockedLevels.Length)
             {
                 positionSelector = unlockedLevels.Length - 1;
@@ -75,7 +78,7 @@ public class LevelSelectController : MonoBehaviour
         }
         if (isPressed)
         {
-            // If input is less not a pressable value
+            // If input is less not a pressable value.
             if (Input.GetAxis("Horizontal") < 0.25f && Input.GetAxis("Horizontal") > -0.25f)
             {
                 isPressed = false;
@@ -83,14 +86,15 @@ public class LevelSelectController : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, levelsLocked[positionSelector].transform.position + new Vector3(0, distanceUnderBlock, 0), moveSpeed * Time.deltaTime);
 
-        if(Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
         {
-            // if level at position is unlocked
+            // If level at position is unlocked.
             if (levelReached[positionSelector] && !isTouchScreen)
             {
-                // Set Positon player is at, keeps player in correct positio entering select menu
+                // Set Positon player is at, keeps player in correct positio entering select menu.
                 PlayerPrefs.SetInt("PlayerLevelSelectPosition", positionSelector);
-                // load that level
+
+                // load that level.
                 SceneManager.LoadScene(levelName[positionSelector]);
 
             }

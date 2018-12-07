@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // 
     Rigidbody2D rigid2D;
 
     //player variables
     public float moveSpeed = 5;
-    //public float maxSpeed = 2f;
     public float jumpHeight = 18;
     private float moveVelocity;
 
@@ -47,7 +45,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (grounded)
             doubleJumped = false;
 
@@ -63,28 +60,17 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && !grounded && !doubleJumped)
         {
-           
+
             Jump();
             doubleJumped = true;
             //
         }
         Move(Input.GetAxisRaw("Horizontal"));
 #endif
-        /*
-           // flip player
-           if (rigid2D.velocity.x > 0)
-               transform.localScale = new Vector3(1f, 1f, 1f);
-           else if (rigid2D.velocity.x < 0)
-              transform.localScale = new Vector3(-1f, 1f, 1f);
-   */
-        // flip player
-        //  Debug.Log("rigid2D.velocity.======"+ rigid2D.velocity.x);
+
         // Restrict movement after kickBack
         if (KickBackCounter <= 0)
         {
-            //Vector2 moveVel = rigid2D.velocity;
-            //moveVel.x = this.moveVelocity;
-            // rigid2D.velocity = moveVel;
             rigid2D.velocity = new Vector2(moveVelocity, rigid2D.velocity.y);
         }
         else
@@ -99,6 +85,7 @@ public class PlayerController : MonoBehaviour
             }
             KickBackCounter -= Time.deltaTime;
         }
+
         // Set animation speed
         anim.SetFloat("Speed", Mathf.Abs(rigid2D.velocity.x));
 
@@ -114,7 +101,6 @@ public class PlayerController : MonoBehaviour
         {
             Shoot();
             shootDelayCounter = shootDelay;
-          //  Instantiate(weaponStar, firePoint.position, firePoint.rotation);
         }
         if (Input.GetButton("Fire1"))
         {
@@ -125,7 +111,7 @@ public class PlayerController : MonoBehaviour
                 Shoot();
             }
         }
-        
+
 #endif
 
     }
@@ -137,26 +123,15 @@ public class PlayerController : MonoBehaviour
 
     // Move player
     public void Move(float moveInput)
-
     {
         moveVelocity = moveInput * moveSpeed;
-
-
-        // Vector2 moveVel = rigid2D.velocity;
-        // moveVel.x = horizontalInput * moveSpeed;
-        //  rigid2D.velocity = moveVel;
     }
 
     // Jump 
-
     public void Jump()
     {
-        // rigid2D.velocity = new Vector2(rigid2D.velocity.x, jumpHeight);
-        //
-
         if (grounded)
         {
-            // doubleJumped = false;
             rigid2D.velocity = new Vector2(rigid2D.velocity.x, jumpHeight);
             //
         }
@@ -164,15 +139,11 @@ public class PlayerController : MonoBehaviour
         {
             rigid2D.velocity = new Vector2(rigid2D.velocity.x, jumpHeight);
             doubleJumped = true;
-
             //
         }
-
     }
     public void Shoot()
     {
         Instantiate(weaponStar, firePoint.position, firePoint.rotation);
-
     }
-
 }

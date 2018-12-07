@@ -5,16 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    //  Variable for if player is at end of level door
+    // Variable for if player is at end of level door.
     public bool playerInDoor;
-    //next level to load
+
+    // Next level to load.
     public string nextLevel;
-    // name of player prefs to store vale
+
+    // Name of player prefs to store value.
     public string unlockedLevel;
+
     // Use this for initialization
     void Start()
     {
-        // Player is not at end of level
+        // Player is not at end of level.
         playerInDoor = false;
     }
 
@@ -29,7 +32,7 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-    // Launch level and access from outside class
+    // Launch level and access from outside class.
     public void LaunchLevel()
     {
         PlayerPrefs.SetInt(unlockedLevel, 1);

@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class PintPickup : MonoBehaviour
 {
-
     public int pointsToAdd;
     public AudioSource pintSoundEffect;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // only allow player pickup coins
+        // Only allow player pickup coins
         if (other.GetComponent<PlayerController>() == null)
             return;
 
         ScoreManager.AddPoints(pointsToAdd);
 
+        // Play sound clip
         pintSoundEffect.Play();
-        // remove point object
+
+        // Remove  object
         Destroy(gameObject);
     }
 

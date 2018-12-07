@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// control the camer
+
+// Control the camera
 public class CameraController : MonoBehaviour {
     public PlayerController player;
     public bool isFollowing;
@@ -12,6 +13,7 @@ public class CameraController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = FindObjectOfType<PlayerController>();
+
         //camera is following player
         isFollowing = true;
 	}

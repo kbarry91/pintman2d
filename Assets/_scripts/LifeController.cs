@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LifeController : MonoBehaviour {
+public class LifeController : MonoBehaviour
+{
 
-    //public int initialLives;
+    // public int initialLives;
     private int lifeCounter;
     private Text lifeText;
 
@@ -19,17 +20,20 @@ public class LifeController : MonoBehaviour {
     public string mainMenu;
     public float delayContinue;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         lifeText = GetComponent<Text>();
+
         // Get PlayerLives
         lifeCounter = PlayerPrefs.GetInt("CurrentPlayerLives");
         player = FindObjectOfType<PlayerController>();
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (lifeCounter == 0)
         {
             gameOverView.SetActive(true);
@@ -37,7 +41,7 @@ public class LifeController : MonoBehaviour {
         }
         lifeText.text = "x " + lifeCounter;
 
-        // if game over view is active
+        // If game over view is active set delay to reload menu.
         if (gameOverView.activeSelf)
         {
             delayContinue -= Time.deltaTime;
@@ -46,7 +50,7 @@ public class LifeController : MonoBehaviour {
         {
             SceneManager.LoadScene(mainMenu);
         }
-	}
+    }
 
     // Add a life
     public void AddLife()
@@ -60,6 +64,5 @@ public class LifeController : MonoBehaviour {
     {
         lifeCounter--;
         PlayerPrefs.SetInt("CurrentPlayerLives", lifeCounter);
-
     }
 }

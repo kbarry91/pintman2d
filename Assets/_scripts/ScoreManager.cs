@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-
     public static int score;
     Text text;
 
@@ -11,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-        //score = 0;
+
         // Set score to current score
         score = PlayerPrefs.GetInt("CurrentPlayerScore");
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickUpLife : MonoBehaviour {
 
     private LifeController lifeController;
+
 	// Use this for initialization
 	void Start () {
         lifeController = FindObjectOfType<LifeController>();

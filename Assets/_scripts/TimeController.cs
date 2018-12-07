@@ -2,28 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class TimeController : MonoBehaviour
 {
-
-
     public float startTime;
     private float timeCounter;
     private Text displayText;
     private PauseMenu pauseGameMenu;
-    // Overview when game ends
-    //public GameObject gameOverView;
 
     // stop player
-    //public PlayerController player;
     private HealthController healthController;
+
     // Use this for initialization
     void Start()
     {
         timeCounter = startTime;
+
         // attach componet to displayText
         displayText = GetComponent<Text>();
         pauseGameMenu = FindObjectOfType<PauseMenu>();
-        //player = FindObjectOfType<PlayerController>();
+
         healthController = FindObjectOfType<HealthController>();
     }
 

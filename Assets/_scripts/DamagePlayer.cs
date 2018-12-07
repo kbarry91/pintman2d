@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Controller for player damage.
 public class DamagePlayer : MonoBehaviour
 {
-
     public int damage;
+
     // Use this for initialization
     void Start()
     {
@@ -22,10 +23,13 @@ public class DamagePlayer : MonoBehaviour
     {
         if (collide.name == "Player")
         {
+            // Decrease players health.
             HealthController.DamagePlayer(damage);
+
+            // Play audio source.
             collide.GetComponent<AudioSource>().Play();
 
-            // knockback player 
+            // knockback player. 
             var player = collide.GetComponent<PlayerController>();
             if (gameObject.GetComponent<PickUpHealth>())
             {
