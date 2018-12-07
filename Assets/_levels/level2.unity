@@ -1478,7 +1478,7 @@ MonoBehaviour:
   respawnParticle: {fileID: 1057115880679180, guid: 3ef4c7a00010b794c8fb9465d5abf882,
     type: 2}
   respawnDelay: 1
-  deathPenalty: 5
+  deathPenalty: 50
   healthController: {fileID: 0}
 --- !u!1001 &239978363
 Prefab:
